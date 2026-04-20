@@ -1,0 +1,2 @@
+# Discussion Question
+> Your collatz_length function calls itself potentially hundreds of times for a single input. What happens to the call stack each time it recurses? Is there a risk here that would not exist if you had used a loop instead? Does Rust do anything to help with this
