@@ -1,0 +1,5 @@
+# Discussion Question
+Wyatt Smith & Longiy Tsin
+> Your collatz_length function calls itself potentially hundreds of times for a single input. What happens to the call stack each time it recurses? Is there a risk here that would not exist if you had used a loop instead? Does Rust do anything to help with this
+
+When compiling the program without the -O flag, the call stack increases by one with each recursive call. This, when performing longest_collatz(1_000_000), causes stack overflow due to creating over 1 million stack frames. To fix this, I compiled the program with the -O flag to compile with optimizations. This uses tail call optimizations so that recursive calls overwrite a single stack frame. Rust does not run in optimized mode by default so that compilation can be faster and developers can experience normalized debugging with improved predictability. Languages like Haskell use tail call optimizations by default because that is the only way to iterate. If I had used loops instead, I would avoid the stack overflow risk by maintaining a single stack frame, and overwriting the variables within it.
